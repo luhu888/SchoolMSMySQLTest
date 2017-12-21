@@ -60,8 +60,9 @@ select sum(alexa) as sum_alexa from websites; -- 显示websites表alexa列的数
 
 select site_id,sum(log.count) as numbers from log group by site_id; -- group by 语句用于结合聚合函数，根据一个或多个列对结果集进行分组
 
-select websites.name,websites.url,sum(log.count)as nums from (log
-inner join websites on log.site_id = websites.id) group by websites.name, websites.url having nums>0; -- having子句可以让我们筛选分组后的各组数据,
+select websites.name,websites.url,sum(log.count)as nums from
+  (log inner join websites on log.site_id = websites.id)
+group by websites.name, websites.url having nums>0; -- having子句可以让我们筛选分组后的各组数据,
 
 select ucase(name)as site_name,url,lcase(country) from websites; -- 将name列的值变为大写,将country列的值变为小写
 
@@ -103,3 +104,6 @@ alter table websites add unique key(alexa); -- 修改alexa字段的记录为唯�
 alter table websites add constraint weiyi_id primary key (id,alexa);
 
 alter table websites drop primary key;
+
+CREATE TABLE copy_website like website;     # 复制表结构，不复制数据
+CREATE TABLE copy_website SELECT  * FROM website;  # 完整复制表结构及数据
