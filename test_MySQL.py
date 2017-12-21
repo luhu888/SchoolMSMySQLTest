@@ -7,7 +7,7 @@ import pymysql
 
 class MySQLTest(unittest.TestCase):
     def setUp(self):
-        self.conn = pymysql.connect(host='192.168.1.104',
+        self.conn = pymysql.connect(host='192.168.1.104',     # 打开数据库连接
                                     user='root',
                                     password='luhu199515lbh',
                                     database='test1',
