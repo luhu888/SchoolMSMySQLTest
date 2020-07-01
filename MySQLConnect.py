@@ -8,7 +8,7 @@ from pymysql import ProgrammingError
 class MySQLConnect(object):
     @staticmethod
     def test_mysql_init(my_host='192.168.1.104', my_user='root',
-                        my_password='luhu199515lbh', my_database='test1',
+                        my_password='xxxxxx', my_database='test1',
                         my_port=3306, my_command=''):
         database = pymysql.connect(host=my_host,  # 打开数据库连接
                                    user=my_user,
